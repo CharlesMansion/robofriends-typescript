@@ -33,13 +33,13 @@ class App extends React.Component<IAppProps, IAppState> {
       .then(users => {this.setState({ robots: users})});
   }
 
-  onSearchChange = (event) => {
+  onSearchChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchfield: event.currentTarget.value })
   }
 
   render() {
     const { robots, searchfield } = this.state;
-    const filteredRobots = robots.filter(robot =>{
+    const filteredRobots:IRobot[] = robots.filter(robot =>{
       return robot.name.toLowerCase().includes(searchfield.toLowerCase());
     })
     return !robots.length ?
