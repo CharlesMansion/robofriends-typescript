@@ -27,7 +27,7 @@ class App extends React.Component<IAppProps, IAppState> {
     }
   }
 
-  componentDidMount() {
+  componentDidMount():void {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response=> response.json())
       .then(users => {this.setState({ robots: users})});
